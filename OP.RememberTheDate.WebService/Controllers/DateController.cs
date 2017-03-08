@@ -3,6 +3,7 @@ using System.Web.Http;
 using System.Web.Http.Results;
 using MediatR;
 using OP.RememberTheDate.WebService.Commands;
+using OP.RememberTheDate.WebService.Filters;
 using OP.RememberTheDate.WebService.Queries;
 
 // ReSharper disable once InconsistentNaming
@@ -19,6 +20,7 @@ namespace OP.RememberTheDate.WebService.Controllers
         }
 
         [HttpPost]
+        [ValidateModel]
         public IHttpActionResult Register([FromBody]RegisterDate registerDate)
         {
             mediator.Send(registerDate);
@@ -26,13 +28,15 @@ namespace OP.RememberTheDate.WebService.Controllers
         }
 
         [HttpGet]
-        public IHttpActionResult GetEventByName([FromUri]DatesByNameQuery datesByNameQuery)
+        [ValidateModel]
+        public IHttpActionResult GetEventByName([FromUri] DatesByNameQuery datesByNameQuery)
         {
             var queryResult = mediator.Send(datesByNameQuery);
             return Ok(queryResult);
         }
 
         [HttpGet]
+        [ValidateModel]
         public IHttpActionResult GetEventByMonth([FromUri]DatesByMonthQuery datesByMonthQuery)
         {
             var queryResult = mediator.Send(datesByMonthQuery);
@@ -40,6 +44,7 @@ namespace OP.RememberTheDate.WebService.Controllers
         }
 
         [HttpGet]
+        [ValidateModel]
         public IHttpActionResult GetEventByYear([FromUri]DatesByYearQuery datesByYearQuery)
         {
             var queryResult = mediator.Send(datesByYearQuery);
@@ -47,6 +52,7 @@ namespace OP.RememberTheDate.WebService.Controllers
         }
 
         [HttpGet]
+        [ValidateModel]
         public IHttpActionResult GetEventByRange([FromUri]DatesByRangeQuery datesByRangeQuery)
         {
             var queryResult = mediator.Send(datesByRangeQuery);

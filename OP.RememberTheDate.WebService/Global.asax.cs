@@ -17,6 +17,7 @@ namespace OP.RememberTheDate.WebService
         protected void Application_Start()
         {
             GlobalConfiguration.Configure(WebApiConfig.Register);
+
             RegisterDependencies();
         }
 

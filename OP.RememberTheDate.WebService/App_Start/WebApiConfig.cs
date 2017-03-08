@@ -1,4 +1,5 @@
 ﻿using System.Web.Http;
+using OP.RememberTheDate.WebService.Filters;
 
 namespace OP.RememberTheDate.WebService
 {
@@ -6,7 +7,13 @@ namespace OP.RememberTheDate.WebService
     {
         public static void Register(HttpConfiguration config)
         {
+            RegisterFilters(config);
             MapRoutes(config);
+        }
+
+        private static void RegisterFilters(HttpConfiguration config)
+        {
+            config.Filters.Add(new ValidateModelAttribute());
         }
 
         private static void MapRoutes(HttpConfiguration config)
