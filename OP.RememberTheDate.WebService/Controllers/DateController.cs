@@ -29,7 +29,7 @@ namespace OP.RememberTheDate.WebService.Controllers
 
         [HttpGet]
         [ValidateModel]
-        public IHttpActionResult GetEventByName([FromUri] DatesByNameQuery datesByNameQuery)
+        public IHttpActionResult GetEventByName([FromUri]DatesByNameQuery datesByNameQuery)
         {
             var queryResult = mediator.Send(datesByNameQuery);
             return Ok(queryResult);
