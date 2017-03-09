@@ -1,9 +1,10 @@
-using System;
+﻿using System;
 
-namespace OP.RememberTheDate.WebService.Models
+namespace OP.RememberTheDate.Storage
 {
     public class DateModel
     {
+        public int Id { get; set; }
         public DateTime Date { get; set; }
         public string EventToMark { get; set; }
     }

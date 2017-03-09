@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OP.RememberTheDate.WebService", "OP.RememberTheDate.WebService\OP.RememberTheDate.WebService.csproj", "{48105AE1-77B9-402D-848E-21C1B40D96DE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OP.RememberTheDate.Storage", "OP.RememberTheDate.Storage\OP.RememberTheDate.Storage.csproj", "{2395005F-4AC6-40DC-A089-6041AEF18A2A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{48105AE1-77B9-402D-848E-21C1B40D96DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{48105AE1-77B9-402D-848E-21C1B40D96DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{48105AE1-77B9-402D-848E-21C1B40D96DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2395005F-4AC6-40DC-A089-6041AEF18A2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2395005F-4AC6-40DC-A089-6041AEF18A2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2395005F-4AC6-40DC-A089-6041AEF18A2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2395005F-4AC6-40DC-A089-6041AEF18A2A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

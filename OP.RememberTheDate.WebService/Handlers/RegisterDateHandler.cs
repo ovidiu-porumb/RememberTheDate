@@ -1,6 +1,5 @@
 ﻿using MediatR;
 using OP.RememberTheDate.WebService.Commands;
-using OP.RememberTheDate.WebService.Models;
 
 namespace OP.RememberTheDate.WebService.Handlers
 {

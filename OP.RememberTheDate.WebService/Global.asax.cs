@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Configuration;
 using System.Reflection;
 using System.Web;
 using System.Web.Http;
@@ -6,6 +7,7 @@ using Autofac;
 using Autofac.Features.Variance;
 using Autofac.Integration.WebApi;
 using MediatR;
+using OP.RememberTheDate.Storage;
 using OP.RememberTheDate.WebService.Commands;
 using OP.RememberTheDate.WebService.Handlers;
 using OP.RememberTheDate.WebService.Queries;
@@ -17,6 +19,7 @@ namespace OP.RememberTheDate.WebService
         protected void Application_Start()
         {
             GlobalConfiguration.Configure(WebApiConfig.Register);
+            StorageFactory.Setup(ConfigurationManager.ConnectionStrings["DatabaseConnectionString"].ConnectionString);
 
             RegisterDependencies();
         }

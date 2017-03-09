@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using MediatR;
-using OP.RememberTheDate.WebService.Models;
+using OP.RememberTheDate.Storage;
 
 namespace OP.RememberTheDate.WebService.Queries
 {
