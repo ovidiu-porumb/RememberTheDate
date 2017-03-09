@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OP.RememberTheDate.WebServi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OP.RememberTheDate.Storage", "OP.RememberTheDate.Storage\OP.RememberTheDate.Storage.csproj", "{2395005F-4AC6-40DC-A089-6041AEF18A2A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OP.RememberTheDate.DatabaseSync", "OP.RememberTheDate.DatabaseSync\OP.RememberTheDate.DatabaseSync.csproj", "{46420913-1348-4095-96D8-E40A5FE40E32}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{2395005F-4AC6-40DC-A089-6041AEF18A2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2395005F-4AC6-40DC-A089-6041AEF18A2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2395005F-4AC6-40DC-A089-6041AEF18A2A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46420913-1348-4095-96D8-E40A5FE40E32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46420913-1348-4095-96D8-E40A5FE40E32}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46420913-1348-4095-96D8-E40A5FE40E32}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46420913-1348-4095-96D8-E40A5FE40E32}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
