@@ -1,0 +1,32 @@
+[
+    {
+        "Common": {
+            "DatabaseConnectionString": "Data Source=localhost;Initial Catalog=RememberTheDate;Integrated security=false; User id=sa; Password=sa1234!@#$;MultipleActiveResultSets=True",
+            "LogFolder": "C:\\MyApplication\\Logs"
+        },
+        "WebService": {
+            "LogFileName": "LogFileForWebservice"
+        },
+        "EnvironmentName": "Development"
+    },
+    {
+        "Common": {
+            "DatabaseConnectionString": "localhost\\sql2012",
+            "LogFolder": "C:\\MyApplication\\Logs"
+        },
+        "WebService": {
+            "LogFileName": "LogFileForWebservice"
+        },
+        "EnvironmentName": "Staging"
+    },
+    {
+        "Common": {
+            "DatabaseConnectionString": "localhost\\sql2012",
+            "LogFolder": "C:\\MyApplication\\Logs"
+        },
+        "WebService": {
+            "LogFileName": "LogFileForWebservice"
+        },
+        "EnvironmentName": "Production"
+    }
+]

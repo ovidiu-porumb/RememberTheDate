@@ -1,0 +1,14 @@
+[
+    {
+        "MachineName": "OVIDIU-PC",
+        "EnvironmentName": "Development"
+    },
+    {
+        "MachineName": "StagingMachineName",
+        "EnvironmentName": "Staging"
+    },
+    { 
+        "MachineName": "ProductionMachineName",
+        "EnvironmentName": "Production"
+    }
+]
