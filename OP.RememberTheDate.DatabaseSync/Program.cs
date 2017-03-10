@@ -1,7 +1,7 @@
 ﻿using System;
-using System.Configuration;
 using System.Reflection;
 using DbUp;
+using OP.RememberTheDate.Configuration;
 
 namespace OP.RememberTheDate.DatabaseSync
 {
@@ -9,7 +9,7 @@ namespace OP.RememberTheDate.DatabaseSync
     {
         public static void Main(string[] args)
         {
-            var connectionString = ConfigurationManager.ConnectionStrings["DatabaseConnectionString"].ConnectionString;
+            var connectionString = RememberTheDateConfigurationContainer.Get().Common.DatabaseConnectionString;
 
             var upgrader =
                 DeployChanges.To

@@ -12,7 +12,7 @@ namespace OP.RememberTheDate.Storage
             var fluentConfiguration = FluentMappingConfiguration.Configure(new DateMapping());
 
             Database = DatabaseFactory.Config(configurationAction => 
-                configurationAction.UsingDatabase(() => new Database(connectionString))
+                configurationAction.UsingDatabase(() => new Database(connectionString, DatabaseType.SqlServer2012))
                 .WithFluentConfig(fluentConfiguration)
                 );
         }

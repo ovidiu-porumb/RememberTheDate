@@ -157,6 +157,14 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Configuration\Project.Configurations.Manager\Project.Configurations.Manager.csproj">
+      <Project>{33A06CD8-EDBE-46B7-A03A-FCA0F8C89EED}</Project>
+      <Name>Project.Configurations.Manager</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OP.RememberTheDate.Configuration\OP.RememberTheDate.Configuration.csproj">
+      <Project>{BC127271-05C5-4150-8899-6E663546374B}</Project>
+      <Name>OP.RememberTheDate.Configuration</Name>
+    </ProjectReference>
     <ProjectReference Include="..\OP.RememberTheDate.Storage\OP.RememberTheDate.Storage.csproj">
       <Project>{2395005F-4AC6-40DC-A089-6041AEF18A2A}</Project>
       <Name>OP.RememberTheDate.Storage</Name>

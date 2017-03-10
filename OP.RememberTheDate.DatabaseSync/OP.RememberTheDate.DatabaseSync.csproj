@@ -56,6 +56,16 @@
   <ItemGroup>
     <EmbeddedResource Include="Scripts\Tables\RegisteredDates.sql" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Configuration\Project.Configurations.Manager\Project.Configurations.Manager.csproj">
+      <Project>{33A06CD8-EDBE-46B7-A03A-FCA0F8C89EED}</Project>
+      <Name>Project.Configurations.Manager</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OP.RememberTheDate.Configuration\OP.RememberTheDate.Configuration.csproj">
+      <Project>{BC127271-05C5-4150-8899-6E663546374B}</Project>
+      <Name>OP.RememberTheDate.Configuration</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
