@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace OP.RememberTheDate.Storage
+namespace OP.RememberTheDate.Storage.Model
 {
     public class DateModel
     {

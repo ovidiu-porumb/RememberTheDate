@@ -1,4 +1,5 @@
 ﻿using NPoco.FluentMappings;
+using OP.RememberTheDate.Storage.Model;
 
 namespace OP.RememberTheDate.Storage
 {

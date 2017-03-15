@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using MediatR;
-using OP.RememberTheDate.Storage;
+using OP.RememberTheDate.Storage.Model;
 using OP.RememberTheDate.WebService.Queries;
 
 namespace OP.RememberTheDate.WebService.Handlers

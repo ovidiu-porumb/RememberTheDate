@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using MediatR;
 using OP.RememberTheDate.Storage;
+using OP.RememberTheDate.Storage.Model;
 using OP.RememberTheDate.WebService.Queries;
 
 namespace OP.RememberTheDate.WebService.Handlers
@@ -11,38 +10,10 @@ namespace OP.RememberTheDate.WebService.Handlers
     {
         public IEnumerable<DateModel> Handle(DatesByNameQuery datesByNameQuery)
         {
-            var repository = new List<DateModel>
-            {
-                new DateModel
-                {
-                    Date = DateTime.Now.Subtract(TimeSpan.FromDays(10)),
-                    EventToMark = "First idea of doing this"
-                },
-                new DateModel
-                {
-                    Date = DateTime.Now.Subtract(TimeSpan.FromDays(5)),
-                    EventToMark = "First encounter with MediatR"
-                },
-                new DateModel
-                {
-                    Date = DateTime.Now.Subtract(TimeSpan.FromDays(2)),
-                    EventToMark = "Started playing around"
-                },
-                new DateModel
-                {
-                    Date = DateTime.Now,
-                    EventToMark = "Current time"
-                }
-            };
-
-            IEnumerable<DateModel> result = repository.Where(EventNameContainsTheString(datesByNameQuery));
+            var storage = new StorageHandler();
+            IEnumerable<DateModel> result = storage.GetRegisteredDatesNamedLike(datesByNameQuery.EventName);
 
             return result;
-        }
-
-        private Func<DateModel, bool> EventNameContainsTheString(DatesByNameQuery message)
-        {
-            return i => i.EventToMark.IndexOf(message.EventName, StringComparison.InvariantCultureIgnoreCase) >= 0;
         }
     }
 }
