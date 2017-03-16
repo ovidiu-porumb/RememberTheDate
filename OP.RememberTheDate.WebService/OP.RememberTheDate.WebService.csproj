@@ -129,6 +129,7 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Filters\ValidateModelAttribute.cs" />
+    <Compile Include="Handlers\RequestHandler.cs" />
     <Compile Include="Handlers\DatesByRangeQueryHandler.cs" />
     <Compile Include="Handlers\DatesByYearQueryHandler.cs" />
     <Compile Include="Handlers\DatesByMonthQueryHandler.cs" />

@@ -8,6 +8,7 @@ using Autofac.Integration.WebApi;
 using MediatR;
 using OP.RememberTheDate.Configuration;
 using OP.RememberTheDate.Storage;
+using OP.RememberTheDate.Storage.Model;
 using OP.RememberTheDate.WebService.Commands;
 using OP.RememberTheDate.WebService.Handlers;
 using OP.RememberTheDate.WebService.Queries;
@@ -31,10 +32,16 @@ namespace OP.RememberTheDate.WebService
             var config = GlobalConfiguration.Configuration;
             builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
 
+            RegisterStorage(builder);
             RegisterServices(builder);
 
             var container = builder.Build();
             config.DependencyResolver = new AutofacWebApiDependencyResolver(container);
+        }
+
+        private static void RegisterStorage(ContainerBuilder builder)
+        {
+            builder.RegisterType<StorageHandler>().As<IStorage<DateModel>>().InstancePerRequest();
         }
 
         private static void RegisterServices(ContainerBuilder builder)

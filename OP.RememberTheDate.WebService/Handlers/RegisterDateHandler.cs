@@ -1,13 +1,17 @@
-﻿using MediatR;
-using OP.RememberTheDate.Storage;
+﻿using OP.RememberTheDate.Storage;
 using OP.RememberTheDate.Storage.Model;
 using OP.RememberTheDate.WebService.Commands;
 
 namespace OP.RememberTheDate.WebService.Handlers
 {
-    public class RegisterDateHandler : IRequestHandler<RegisterDate>
+    public class RegisterDateHandler : RequestHandler<RegisterDate>
     {
-        public void Handle(RegisterDate dateToRegister)
+        public RegisterDateHandler(IStorage<DateModel> storage)
+            : base(storage)
+        {
+        }
+
+        public override void Handle(RegisterDate dateToRegister)
         {
             var writeModel = new DateModel
             {
@@ -15,8 +19,7 @@ namespace OP.RememberTheDate.WebService.Handlers
                 EventToMark = dateToRegister.EventToMark
             };
 
-            var storageHandler = new StorageHandler();
-            storageHandler.Insert(writeModel);
+            storage.Insert(writeModel);
         }
     }
 }

@@ -36,7 +36,6 @@ namespace OP.RememberTheDate.WebService.Handlers
             };
 
             IEnumerable<DateModel> result = repository.Where(EventIsInTheRange(datesByRangeQuery));
-
             return result;
         }
 

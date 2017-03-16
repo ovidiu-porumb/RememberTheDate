@@ -3,11 +3,12 @@ using System.Linq;
 using NPoco;
 using OP.RememberTheDate.Storage.Model;
 
+// ReSharper disable InconsistentNaming
+
 namespace OP.RememberTheDate.Storage
 {
     public class StorageHandler : IStorage<DateModel>
     {
-        // ReSharper disable once InconsistentNaming
         private readonly Database database;
 
         public StorageHandler()
