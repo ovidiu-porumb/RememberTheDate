@@ -2,6 +2,6 @@
 {
     public interface IWriteStorage<in T>
     {
-        void Insert(T elementToInsert);
+        void RegisterDateForEvent(T model);
     }
 }
