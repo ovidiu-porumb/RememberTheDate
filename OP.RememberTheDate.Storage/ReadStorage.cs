@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using NPoco;
 using OP.RememberTheDate.Storage.Model;
@@ -6,7 +7,7 @@ using OP.RememberTheDate.Storage.Model;
 
 namespace OP.RememberTheDate.Storage
 {
-    // ReSharper disable once ClassNeverInstantiated.Global
+    // ReSharper disable ClassNeverInstantiated.Global
     public class ReadStorage : IReadStorage<DateModel>
     {
         private readonly Database database;
@@ -25,6 +26,17 @@ namespace OP.RememberTheDate.Storage
         public IEnumerable<DateModel> GetRegisteredDatesNamedLike(string eventName)
         {
             return database.Query<DateModel>().Where(e => e.EventToMark.ToLower().Contains(eventName.ToLower())).ToList();
+        }
+
+        public IEnumerable<DateModel> GetRegisteredDatesInsideInterval(DateTime from, DateTime to)
+        {
+            return database.Query<DateModel>().Where(e => e.Date > from && e.Date < to).ToList();
+        }
+
+        public IEnumerable<DateModel> GetRegisteredDatesFromMonth(int month)
+        {
+            //nasty hack 'cause the where clause apparently cannot access a property of the datetime value
+            return database.Query<DateModel>().ToList().Where(e => e.Date.Month == month);
         }
     }
 }
