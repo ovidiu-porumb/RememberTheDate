@@ -6,20 +6,14 @@ namespace OP.RememberTheDate.WebService.Handlers
 {
     public class RegisterDateHandler : CommandHandler<RegisterDate>
     {
-        public RegisterDateHandler(IWriteStorage<DateModel> WriteStorage)
-            : base(WriteStorage)
+        public RegisterDateHandler(IWriteStorage<DateModel> writeStorage)
+            : base(writeStorage)
         {
         }
 
         public override void Handle(RegisterDate dateToRegister)
         {
-            var writeModel = new DateModel
-            {
-                Date = dateToRegister.Date,
-                EventToMark = dateToRegister.EventToMark
-            };
-
-            writeStorage.Insert(writeModel);
+            dateToRegister.ExecuteOnStorage(writeStorage);
         }
     }
 }

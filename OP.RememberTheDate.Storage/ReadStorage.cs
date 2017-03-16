@@ -2,9 +2,11 @@
 using System.Linq;
 using NPoco;
 using OP.RememberTheDate.Storage.Model;
+// ReSharper disable InconsistentNaming
 
 namespace OP.RememberTheDate.Storage
 {
+    // ReSharper disable once ClassNeverInstantiated.Global
     public class ReadStorage : IReadStorage<DateModel>
     {
         private readonly Database database;

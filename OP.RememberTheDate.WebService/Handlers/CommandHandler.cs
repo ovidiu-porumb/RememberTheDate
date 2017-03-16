@@ -9,9 +9,9 @@ namespace OP.RememberTheDate.WebService.Handlers
         // ReSharper disable once InconsistentNaming
         protected readonly IWriteStorage<DateModel> writeStorage;
 
-        protected CommandHandler(IWriteStorage<DateModel> WriteStorage)
+        protected CommandHandler(IWriteStorage<DateModel> writeStorage)
         {
-             this.writeStorage = WriteStorage;
+             this.writeStorage = writeStorage;
         }
 
         public abstract void Handle(T message);
