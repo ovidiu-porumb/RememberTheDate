@@ -14,7 +14,7 @@ namespace OP.RememberTheDate.WebService.Handlers
 
         public override IEnumerable<DateModel> Handle(DatesByYearQuery datesByYearQuery)
         {
-            return datesByYearQuery.QueryOverStorage(readStorage);
+            return datesByYearQuery.GetRegisteredDatesOnSpecificYearFrom(readStorage);
         }
     }
 }

@@ -15,7 +15,7 @@ namespace OP.RememberTheDate.WebService.Queries
         [Required]
         public string EventName { get; set; }
 
-        public IEnumerable<DateModel> QueryOverStorage(IReadStorage<DateModel> readStorage)
+        public IEnumerable<DateModel> GetRegisteredDatesContainingTheStringInNameFrom(IReadStorage<DateModel> readStorage)
         {
             IEnumerable<DateModel> result = readStorage.GetRegisteredDatesNamedLike(this.EventName);
             return result;

@@ -1,11 +1,13 @@
 ﻿using NPoco;
 using NPoco.FluentMappings;
 
+// ReSharper disable ClassNeverInstantiated.Global
+
 namespace OP.RememberTheDate.Storage
 {
     public class StorageFactory
     {
-        public static DatabaseFactory Database { get; set; }
+        public static DatabaseFactory Database { get; private set; }
 
         public static void Setup(string connectionString)
         {

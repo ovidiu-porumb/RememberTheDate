@@ -13,7 +13,7 @@ namespace OP.RememberTheDate.WebService.Handlers
 
         public override void Handle(RegisterDate dateToRegister)
         {
-            dateToRegister.ExecuteOnStorage(writeStorage);
+            dateToRegister.RegisterDateForEventOn(writeStorage);
         }
     }
 }

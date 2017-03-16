@@ -18,7 +18,7 @@ namespace OP.RememberTheDate.WebService.Queries
         [Required]
         public DateTime To { get; set; }
 
-        public IEnumerable<DateModel> QueryOverStorage(IReadStorage<DateModel> readStorage)
+        public IEnumerable<DateModel> GetRegisteredDatesInsideIntervalFrom(IReadStorage<DateModel> readStorage)
         {
             IEnumerable<DateModel> result = readStorage.GetRegisteredDatesInsideInterval(this.From, this.To);
             return result;

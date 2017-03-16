@@ -14,7 +14,7 @@ namespace OP.RememberTheDate.WebService.Handlers
 
         public override IEnumerable<DateModel> Handle(DatesByRangeQuery datesByRangeQuery)
         {
-            return datesByRangeQuery.QueryOverStorage(readStorage);
+            return datesByRangeQuery.GetRegisteredDatesInsideIntervalFrom(readStorage);
         }
     }
 }

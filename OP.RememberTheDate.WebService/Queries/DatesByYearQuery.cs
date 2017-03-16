@@ -16,7 +16,7 @@ namespace OP.RememberTheDate.WebService.Queries
         [Range(1, 10000, ErrorMessage = "I strongly believe that the first 10.000 years from the Current Era should suffice for the purposes of this application.")]
         public int Year { get; set; }
 
-        public IEnumerable<DateModel> QueryOverStorage(IReadStorage<DateModel> readStorage)
+        public IEnumerable<DateModel> GetRegisteredDatesOnSpecificYearFrom(IReadStorage<DateModel> readStorage)
         {
             IEnumerable<DateModel> result = readStorage.GetRegisteredDatesFromYear(this.Year);
             return result;

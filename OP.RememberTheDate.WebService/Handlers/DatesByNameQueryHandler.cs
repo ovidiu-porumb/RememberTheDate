@@ -13,7 +13,7 @@ namespace OP.RememberTheDate.WebService.Handlers
 
         public override IEnumerable<DateModel> Handle(DatesByNameQuery datesByNameQuery)
         {
-            return datesByNameQuery.QueryOverStorage(readStorage);
+            return datesByNameQuery.GetRegisteredDatesContainingTheStringInNameFrom(readStorage);
         }
     }
 }

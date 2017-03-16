@@ -17,7 +17,7 @@ namespace OP.RememberTheDate.WebService.Commands
         [Required]
         public string EventToMark { get; set; }
 
-        public void ExecuteOnStorage(IWriteStorage<DateModel> writeStorage)
+        public void RegisterDateForEventOn(IWriteStorage<DateModel> writeStorage)
         {
             var writeModel = new DateModel
             {

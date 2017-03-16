@@ -16,7 +16,7 @@ namespace OP.RememberTheDate.WebService.Queries
         [Range(1, 12, ErrorMessage = "The month number must be set between 1 (January) and 12 (December).")]
         public Months Month { get; set; }
 
-        public IEnumerable<DateModel> QueryOverStorage(IReadStorage<DateModel> readStorage)
+        public IEnumerable<DateModel> GetRegisteredDatesOnSpecificMonthFrom(IReadStorage<DateModel> readStorage)
         {
             IEnumerable<DateModel> result = readStorage.GetRegisteredDatesFromMonth((int)this.Month);
             return result;

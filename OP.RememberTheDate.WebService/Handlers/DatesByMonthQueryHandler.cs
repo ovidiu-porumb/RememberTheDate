@@ -14,7 +14,7 @@ namespace OP.RememberTheDate.WebService.Handlers
 
         public override IEnumerable<DateModel> Handle(DatesByMonthQuery datesByMonthQuery)
         {
-            return datesByMonthQuery.QueryOverStorage(readStorage);
+            return datesByMonthQuery.GetRegisteredDatesOnSpecificMonthFrom(readStorage);
         }
     }
 }
