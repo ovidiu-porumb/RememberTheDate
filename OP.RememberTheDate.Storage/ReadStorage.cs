@@ -3,22 +3,15 @@ using System.Linq;
 using NPoco;
 using OP.RememberTheDate.Storage.Model;
 
-// ReSharper disable InconsistentNaming
-
 namespace OP.RememberTheDate.Storage
 {
-    public class StorageHandler : IStorage<DateModel>
+    public class ReadStorage : IReadStorage<DateModel>
     {
         private readonly Database database;
 
-        public StorageHandler()
+        public ReadStorage()
         {
             database = StorageFactory.Database.GetDatabase();
-        }
-
-        public void Insert(DateModel elementToInsert)
-        {
-            database.Insert(elementToInsert);
         }
 
         public IEnumerable<DateModel> GetRegisteredDatesFromYear(int year)

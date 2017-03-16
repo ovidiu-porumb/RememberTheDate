@@ -4,14 +4,14 @@ using OP.RememberTheDate.Storage.Model;
 
 namespace OP.RememberTheDate.WebService.Handlers
 {
-    public abstract class RequestHandler<T> : IRequestHandler<T> where T : IRequest
+    public abstract class CommandHandler<T> : IRequestHandler<T> where T : IRequest
     {
         // ReSharper disable once InconsistentNaming
-        protected readonly IStorage<DateModel> storage;
+        protected readonly IWriteStorage<DateModel> writeStorage;
 
-        protected RequestHandler(IStorage<DateModel> storage)
+        protected CommandHandler(IWriteStorage<DateModel> WriteStorage)
         {
-             this.storage = storage;
+             this.writeStorage = WriteStorage;
         }
 
         public abstract void Handle(T message);

@@ -4,10 +4,10 @@ using OP.RememberTheDate.WebService.Commands;
 
 namespace OP.RememberTheDate.WebService.Handlers
 {
-    public class RegisterDateHandler : RequestHandler<RegisterDate>
+    public class RegisterDateHandler : CommandHandler<RegisterDate>
     {
-        public RegisterDateHandler(IStorage<DateModel> storage)
-            : base(storage)
+        public RegisterDateHandler(IWriteStorage<DateModel> WriteStorage)
+            : base(WriteStorage)
         {
         }
 
@@ -19,7 +19,7 @@ namespace OP.RememberTheDate.WebService.Handlers
                 EventToMark = dateToRegister.EventToMark
             };
 
-            storage.Insert(writeModel);
+            writeStorage.Insert(writeModel);
         }
     }
 }

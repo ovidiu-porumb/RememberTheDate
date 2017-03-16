@@ -1,18 +1,20 @@
 ﻿using System.Collections.Generic;
-using MediatR;
 using OP.RememberTheDate.Storage;
 using OP.RememberTheDate.Storage.Model;
 using OP.RememberTheDate.WebService.Queries;
 
 namespace OP.RememberTheDate.WebService.Handlers
 {
-    public class DatesByYearQueryHandler : IRequestHandler<DatesByYearQuery, IEnumerable<DateModel>>
+    public class DatesByYearQueryHandler : QueryHandler<DatesByYearQuery, IEnumerable<DateModel>>
     {
-        public IEnumerable<DateModel> Handle(DatesByYearQuery datesByYearQuery)
+        public DatesByYearQueryHandler(IReadStorage<DateModel> readStorage)
+            : base(readStorage)
         {
-            var storage = new StorageHandler();
-            IEnumerable<DateModel> result = storage.GetRegisteredDatesFromYear(datesByYearQuery.Year);
+        }
 
+        public override IEnumerable<DateModel> Handle(DatesByYearQuery datesByYearQuery)
+        {
+            IEnumerable<DateModel> result = readStorage.GetRegisteredDatesFromYear(datesByYearQuery.Year);
             return result;
         }
     }

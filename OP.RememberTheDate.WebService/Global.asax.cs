@@ -41,7 +41,8 @@ namespace OP.RememberTheDate.WebService
 
         private static void RegisterStorage(ContainerBuilder builder)
         {
-            builder.RegisterType<StorageHandler>().As<IStorage<DateModel>>().InstancePerRequest();
+            builder.RegisterType<WriteStorage>().As<IWriteStorage<DateModel>>().InstancePerRequest();
+            builder.RegisterType<ReadStorage>().As<IReadStorage<DateModel>>().InstancePerRequest();
         }
 
         private static void RegisterServices(ContainerBuilder builder)

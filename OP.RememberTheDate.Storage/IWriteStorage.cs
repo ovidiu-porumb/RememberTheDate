@@ -1,6 +1,6 @@
 ﻿namespace OP.RememberTheDate.Storage
 {
-    public interface IStorage<in T>
+    public interface IWriteStorage<in T>
     {
         void Insert(T elementToInsert);
     }
