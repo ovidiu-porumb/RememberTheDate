@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using OP.RememberTheDate.Storage;
+using OP.RememberTheDate.Storage.Contracts;
 using OP.RememberTheDate.Storage.Model;
 using OP.RememberTheDate.WebService.Queries;
 

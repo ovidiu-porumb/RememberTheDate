@@ -1,4 +1,5 @@
 ﻿using NPoco;
+using OP.RememberTheDate.Storage.Contracts;
 using OP.RememberTheDate.Storage.Model;
 
 // ReSharper disable ClassNeverInstantiated.Global

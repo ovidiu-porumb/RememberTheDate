@@ -47,9 +47,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ReadStorage.cs" />
-    <Compile Include="IReadStorage.cs" />
+    <Compile Include="Contracts\IReadStorage.cs" />
     <Compile Include="WriteStorage.cs" />
-    <Compile Include="IWriteStorage.cs" />
+    <Compile Include="Contracts\IWriteStorage.cs" />
     <Compile Include="StorageFactory.cs" />
     <Compile Include="DateMapping.cs" />
     <Compile Include="Model\DateModel.cs" />

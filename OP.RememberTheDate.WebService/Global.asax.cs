@@ -8,6 +8,7 @@ using Autofac.Integration.WebApi;
 using MediatR;
 using OP.RememberTheDate.Configuration;
 using OP.RememberTheDate.Storage;
+using OP.RememberTheDate.Storage.Contracts;
 using OP.RememberTheDate.Storage.Model;
 using OP.RememberTheDate.WebService.Commands;
 using OP.RememberTheDate.WebService.Handlers;

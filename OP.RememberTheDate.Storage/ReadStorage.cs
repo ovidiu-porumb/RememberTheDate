@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using NPoco;
+using OP.RememberTheDate.Storage.Contracts;
 using OP.RememberTheDate.Storage.Model;
+
 // ReSharper disable InconsistentNaming
 
 namespace OP.RememberTheDate.Storage

@@ -1,5 +1,5 @@
 ﻿using MediatR;
-using OP.RememberTheDate.Storage;
+using OP.RememberTheDate.Storage.Contracts;
 using OP.RememberTheDate.Storage.Model;
 
 namespace OP.RememberTheDate.WebService.Handlers
