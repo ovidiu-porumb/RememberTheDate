@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="ReadStorage.cs" />
     <Compile Include="Contracts\IReadStorage.cs" />
+    <Compile Include="TestClassToBeDeleted.cs" />
     <Compile Include="WriteStorage.cs" />
     <Compile Include="Contracts\IWriteStorage.cs" />
     <Compile Include="StorageFactory.cs" />
