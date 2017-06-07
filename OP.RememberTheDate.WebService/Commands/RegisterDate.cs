@@ -14,6 +14,7 @@ namespace OP.RememberTheDate.WebService.Commands
     {
         [Required]
         public DateTime Date { get; set; }
+
         [Required]
         public string EventToMark { get; set; }
 

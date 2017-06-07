@@ -7,9 +7,10 @@ using Autofac.Features.Variance;
 using Autofac.Integration.WebApi;
 using MediatR;
 using OP.RememberTheDate.Configuration;
-using OP.RememberTheDate.Storage;
 using OP.RememberTheDate.Storage.Contracts;
 using OP.RememberTheDate.Storage.Model;
+using OP.RememberTheDate.Storage.Mongo;
+using OP.RememberTheDate.Storage.SQL;
 using OP.RememberTheDate.WebService.Commands;
 using OP.RememberTheDate.WebService.Handlers;
 using OP.RememberTheDate.WebService.Queries;
@@ -42,23 +43,34 @@ namespace OP.RememberTheDate.WebService
 
         private static void RegisterStorage(ContainerBuilder builder)
         {
-            builder.RegisterType<WriteStorage>().As<IWriteStorage<DateModel>>().InstancePerRequest();
-            builder.RegisterType<ReadStorage>().As<IReadStorage<DateModel>>().InstancePerRequest();
+            builder.Register(
+                    instance =>
+                        new MongoWriteStorage(RememberTheDateConfigurationContainer.Get().Common.DatabaseConnectionString))
+                .As<IWriteStorage<DateModel>>()
+                .InstancePerRequest();
+            builder.Register(
+                    instance =>
+                        new MongoReadStorage(RememberTheDateConfigurationContainer.Get().Common.DatabaseConnectionString))
+                .As<IReadStorage<DateModel>>()
+                .InstancePerRequest();
+
+            //builder.RegisterType<SqlWriteStorage>().AsImplementedInterfaces().InstancePerRequest();
+            //builder.RegisterType<SqlReadStorage>().As<IReadStorage<DateModel>>().InstancePerRequest();
         }
 
         private static void RegisterServices(ContainerBuilder builder)
         {
             builder.RegisterSource(new ContravariantRegistrationSource());
             builder.RegisterAssemblyTypes(typeof(IMediator).Assembly).AsSelf().AsImplementedInterfaces();
-            builder.Register<SingleInstanceFactory>(ctx =>
+            builder.Register<SingleInstanceFactory>(context =>
             {
-                var c = ctx.Resolve<IComponentContext>();
+                var c = context.Resolve<IComponentContext>();
                 return t => c.Resolve(t);
             });
             builder.Register<MultiInstanceFactory>(ctx =>
             {
                 var c = ctx.Resolve<IComponentContext>();
-                return t => (IEnumerable<object>)c.Resolve(typeof(IEnumerable<>).MakeGenericType(t));
+                return t => (IEnumerable<object>) c.Resolve(typeof(IEnumerable<>).MakeGenericType(t));
             });
 
             RegisterCommands(builder);
@@ -67,20 +79,24 @@ namespace OP.RememberTheDate.WebService
 
         private static void RegisterCommands(ContainerBuilder builder)
         {
-            builder.RegisterAssemblyTypes(typeof (RegisterDate).GetTypeInfo().Assembly).AsImplementedInterfaces();
-            builder.RegisterAssemblyTypes(typeof (RegisterDateHandler).GetTypeInfo().Assembly).AsImplementedInterfaces();
+            builder.RegisterAssemblyTypes(typeof(RegisterDate).GetTypeInfo().Assembly).AsImplementedInterfaces();
+            builder.RegisterAssemblyTypes(typeof(RegisterDateHandler).GetTypeInfo().Assembly).AsImplementedInterfaces();
         }
 
         private static void RegisterQueries(ContainerBuilder builder)
         {
-            builder.RegisterAssemblyTypes(typeof (DatesByNameQuery).GetTypeInfo().Assembly).AsImplementedInterfaces();
-            builder.RegisterAssemblyTypes(typeof (DatesByNameQueryHandler).GetTypeInfo().Assembly).AsImplementedInterfaces();
-            builder.RegisterAssemblyTypes(typeof (DatesByMonthQuery).GetTypeInfo().Assembly).AsImplementedInterfaces();
-            builder.RegisterAssemblyTypes(typeof (DatesByMonthQueryHandler).GetTypeInfo().Assembly).AsImplementedInterfaces();
-            builder.RegisterAssemblyTypes(typeof (DatesByYearQuery).GetTypeInfo().Assembly).AsImplementedInterfaces();
-            builder.RegisterAssemblyTypes(typeof (DatesByYearQueryHandler).GetTypeInfo().Assembly).AsImplementedInterfaces();
-            builder.RegisterAssemblyTypes(typeof (DatesByRangeQuery).GetTypeInfo().Assembly).AsImplementedInterfaces();
-            builder.RegisterAssemblyTypes(typeof (DatesByRangeQueryHandler).GetTypeInfo().Assembly).AsImplementedInterfaces();
+            builder.RegisterAssemblyTypes(typeof(DatesByNameQuery).GetTypeInfo().Assembly).AsImplementedInterfaces();
+            builder.RegisterAssemblyTypes(typeof(DatesByNameQueryHandler).GetTypeInfo().Assembly)
+                .AsImplementedInterfaces();
+            builder.RegisterAssemblyTypes(typeof(DatesByMonthQuery).GetTypeInfo().Assembly).AsImplementedInterfaces();
+            builder.RegisterAssemblyTypes(typeof(DatesByMonthQueryHandler).GetTypeInfo().Assembly)
+                .AsImplementedInterfaces();
+            builder.RegisterAssemblyTypes(typeof(DatesByYearQuery).GetTypeInfo().Assembly).AsImplementedInterfaces();
+            builder.RegisterAssemblyTypes(typeof(DatesByYearQueryHandler).GetTypeInfo().Assembly)
+                .AsImplementedInterfaces();
+            builder.RegisterAssemblyTypes(typeof(DatesByRangeQuery).GetTypeInfo().Assembly).AsImplementedInterfaces();
+            builder.RegisterAssemblyTypes(typeof(DatesByRangeQueryHandler).GetTypeInfo().Assembly)
+                .AsImplementedInterfaces();
         }
     }
 }

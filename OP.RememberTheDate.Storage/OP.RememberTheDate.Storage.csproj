@@ -30,10 +30,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="NPoco, Version=3.5.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\NPoco.3.5.0\lib\net45\NPoco.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -46,13 +42,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ReadStorage.cs" />
     <Compile Include="Contracts\IReadStorage.cs" />
-    <Compile Include="TestClassToBeDeleted.cs" />
-    <Compile Include="WriteStorage.cs" />
     <Compile Include="Contracts\IWriteStorage.cs" />
-    <Compile Include="StorageFactory.cs" />
-    <Compile Include="DateMapping.cs" />
     <Compile Include="Model\DateModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -169,6 +169,14 @@
       <Project>{BC127271-05C5-4150-8899-6E663546374B}</Project>
       <Name>OP.RememberTheDate.Configuration</Name>
     </ProjectReference>
+    <ProjectReference Include="..\OP.RememberTheDate.Storage.Mongo\OP.RememberTheDate.Storage.Mongo.csproj">
+      <Project>{3e7f29a4-14de-45ba-9461-2b7b7d6009c6}</Project>
+      <Name>OP.RememberTheDate.Storage.Mongo</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OP.RememberTheDate.Storage.SQL\OP.RememberTheDate.Storage.SQL.csproj">
+      <Project>{88C0046E-7307-4A7B-A6D6-54AA81F5328E}</Project>
+      <Name>OP.RememberTheDate.Storage.SQL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\OP.RememberTheDate.Storage\OP.RememberTheDate.Storage.csproj">
       <Project>{2395005F-4AC6-40DC-A089-6041AEF18A2A}</Project>
       <Name>OP.RememberTheDate.Storage</Name>
