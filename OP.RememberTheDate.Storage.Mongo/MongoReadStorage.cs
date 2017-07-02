@@ -10,12 +10,11 @@ namespace OP.RememberTheDate.Storage.Mongo
 {
     public class MongoReadStorage : IReadStorage<DateModel>
     {
-        private readonly IMongoClient client;
         private readonly IMongoDatabase database;
 
         public MongoReadStorage(string connectionString)
         {
-            client = new MongoClient(connectionString);
+            IMongoClient client = new MongoClient(connectionString);
             database = client.GetDatabase("RememberTheDate");
         }
 
@@ -25,7 +24,7 @@ namespace OP.RememberTheDate.Storage.Mongo
             var firstDateOfTheYear = new DateTime(year, 1, 1);
             var lastDateOfTheYear = new DateTime(year, 12, 31);
 
-            var collection = database.GetCollection<DateModel>("RegisteredDates").AsQueryable();
+            var collection = database.GetCollection<DateModel>(DateModel.TableName).AsQueryable();
 
             return
                 IAsyncCursorSourceExtensions.ToList(
@@ -34,7 +33,7 @@ namespace OP.RememberTheDate.Storage.Mongo
 
         public IEnumerable<DateModel> GetRegisteredDatesNamedLike(string eventName)
         {
-            var collection = database.GetCollection<DateModel>("RegisteredDates").AsQueryable();
+            var collection = database.GetCollection<DateModel>(DateModel.TableName).AsQueryable();
 
             return
                 IAsyncCursorSourceExtensions.ToList(collection.Where(e => e.EventToMark.ToLower().Contains(eventName)));
@@ -42,7 +41,7 @@ namespace OP.RememberTheDate.Storage.Mongo
 
         public IEnumerable<DateModel> GetRegisteredDatesInsideInterval(DateTime from, DateTime to)
         {
-            var collection = database.GetCollection<DateModel>("RegisteredDates").AsQueryable();
+            var collection = database.GetCollection<DateModel>(DateModel.TableName).AsQueryable();
 
             return IAsyncCursorSourceExtensions.ToList(collection.Where(e => e.Date >= from && e.Date <= to));
         }
@@ -50,7 +49,7 @@ namespace OP.RememberTheDate.Storage.Mongo
         public IEnumerable<DateModel> GetRegisteredDatesFromMonth(int month)
         {
             var collection =
-                IAsyncCursorSourceExtensions.ToList(database.GetCollection<DateModel>("RegisteredDates").AsQueryable());
+                IAsyncCursorSourceExtensions.ToList(database.GetCollection<DateModel>(DateModel.TableName).AsQueryable());
 
             return collection.Where(e => e.Date.Month == month);
         }

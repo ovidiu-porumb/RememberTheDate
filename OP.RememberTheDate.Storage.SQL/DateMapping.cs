@@ -8,7 +8,13 @@ namespace OP.RememberTheDate.Storage.SQL
         public DateMapping()
         {
             PrimaryKey(x => x.Id);
-            TableName("RegisteredDates");
+            TableName(DateModel.TableName);
+            Columns(
+                model =>
+                {
+                    model.Column(x => x.Date);
+                    model.Column(x => x.EventToMark);
+                });
         }
     }
 }

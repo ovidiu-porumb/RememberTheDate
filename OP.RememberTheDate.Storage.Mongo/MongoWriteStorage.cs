@@ -7,12 +7,11 @@ namespace OP.RememberTheDate.Storage.Mongo
 {
     public class MongoWriteStorage : IWriteStorage<DateModel>
     {
-        private readonly IMongoClient client;
         private readonly IMongoDatabase database;
 
         public MongoWriteStorage(string connectionString)
         {
-            client = new MongoClient(connectionString);
+            IMongoClient client = new MongoClient(connectionString);
             database = client.GetDatabase("RememberTheDate");
         }
 
@@ -24,7 +23,7 @@ namespace OP.RememberTheDate.Storage.Mongo
                 {"eventToMark", model.EventToMark}
             };
 
-            database.GetCollection<BsonDocument>("RegisteredDates").InsertOne(document);
+            database.GetCollection<BsonDocument>(DateModel.TableName).InsertOne(document);
         }
     }
 }

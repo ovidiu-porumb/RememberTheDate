@@ -15,8 +15,7 @@ namespace OP.RememberTheDate.Storage.SQL
 
             Database = DatabaseFactory.Config(configurationAction => 
                 configurationAction.UsingDatabase(() => new Database(connectionString, DatabaseType.SqlServer2012))
-                .WithFluentConfig(fluentConfiguration)
-                );
+                .WithFluentConfig(fluentConfiguration));
         }
     }
 }
