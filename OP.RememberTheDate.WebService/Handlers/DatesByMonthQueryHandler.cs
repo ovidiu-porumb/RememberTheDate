@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using OP.RememberTheDate.Storage.Contracts;
 using OP.RememberTheDate.Storage.Model;
+using OP.RememberTheDate.WebService.Handlers.BaseHandlers;
 using OP.RememberTheDate.WebService.Queries;
 
 namespace OP.RememberTheDate.WebService.Handlers

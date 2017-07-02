@@ -1,5 +1,4 @@
-﻿using System;
-using MongoDB.Bson;
+﻿using MongoDB.Bson;
 using MongoDB.Driver;
 using OP.RememberTheDate.Storage.Contracts;
 using OP.RememberTheDate.Storage.Model;

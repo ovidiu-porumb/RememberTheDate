@@ -129,8 +129,8 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Filters\ValidateModelAttribute.cs" />
-    <Compile Include="Handlers\QueryHandler.cs" />
-    <Compile Include="Handlers\CommandHandler.cs" />
+    <Compile Include="Handlers\BaseHandlers\QueryHandler.cs" />
+    <Compile Include="Handlers\BaseHandlers\CommandHandler.cs" />
     <Compile Include="Handlers\DatesByRangeQueryHandler.cs" />
     <Compile Include="Handlers\DatesByYearQueryHandler.cs" />
     <Compile Include="Handlers\DatesByMonthQueryHandler.cs" />

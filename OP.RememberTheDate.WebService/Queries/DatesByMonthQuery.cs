@@ -18,7 +18,7 @@ namespace OP.RememberTheDate.WebService.Queries
 
         public IEnumerable<DateModel> GetRegisteredDatesOnSpecificMonthFrom(IReadStorage<DateModel> readStorage)
         {
-            IEnumerable<DateModel> result = readStorage.GetRegisteredDatesFromMonth((int)this.Month);
+            IEnumerable<DateModel> result = readStorage.GetRegisteredDatesFromMonth((int)Month);
             return result;
         }
     }
